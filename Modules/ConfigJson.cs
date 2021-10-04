@@ -166,6 +166,8 @@ namespace Cliptok
         [JsonProperty("autoBanIds")]
         public List<AutoBanIdSet> AutoBanIds { get; private set; }
 
+        [JsonProperty("dmScamChannel")]
+        public ulong DmScamChannel { get; private set; }
     }
 
     public class WordListJson
