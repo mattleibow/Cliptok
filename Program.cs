@@ -215,11 +215,11 @@ namespace Cliptok
                     userLogChannel = await discord.GetChannelAsync(cfgjson.UserLogChannel);
                     badMsgLog = await discord.GetChannelAsync(cfgjson.InvestigationsChannelId);
                     DiscordGuild homeServer = await discord.GetGuildAsync(cfgjson.ServerID);
-                    Console.WriteLine(badMsgLog.Threads.ToString());
-                    dmScamLog = badMsgLog.Threads.Where(x => x.Id == cfgjson.DmScamChannel).FirstOrDefault();
+                    var possibleThreads = await badMsgLog.ListPublicArchivedThreadsAsync();
+                    dmScamLog = possibleThreads.Threads.Where(x => x.Id == cfgjson.DmScamChannel).FirstOrDefault();
                     try
                     {
-                        await dmScamLog.SendMessageAsync("test it worked");
+                        await dmScamLog.SendMessageAsync("Test message to wake up thread, will be removed from code once it works");
                     }
                     catch (Exception e)
                     {
