@@ -215,7 +215,7 @@ namespace Cliptok
                     userLogChannel = await discord.GetChannelAsync(cfgjson.UserLogChannel);
                     badMsgLog = await discord.GetChannelAsync(cfgjson.InvestigationsChannelId);
                     DiscordGuild homeServer = await discord.GetGuildAsync(cfgjson.ServerID);
-                    Console.WriteLine(homeServer.Threads.ToString());
+                    Console.WriteLine(badMsgLog.Threads.ToString());
                     dmScamLog = badMsgLog.Threads.Where(x => x.Id == cfgjson.DmScamChannel).FirstOrDefault();
                     try
                     {
